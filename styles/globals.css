@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap"); */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: "Manrope", -apple-system, Helvetica, "Segoe UI", Roboto, Oxygen,
+        "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+@font-face {
+    font-family: "Zodiak";
+    src: url("../public/fonts/Zodiak-Thin.woff2") format("woff2"),
+        url("../public/fonts/Zodiak-Thin.woff") format("woff"),
+        url("../public/fonts/Zodiak-Thin.ttf") format("truetype");
+    font-weight: 100;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Zodiak";
+    src: url("../public/fonts/Zodiak-ThinItalic.woff2") format("woff2"),
+        url("../public/fonts/Zodiak-ThinItalic.woff") format("woff"),
+        url("../public/fonts/Zodiak-ThinItalic.ttf") format("truetype");
+    font-weight: 100;
+    font-display: swap;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Zodiak";
+    src: url("../public/fonts/Zodiak-Light.woff2") format("woff2"),
+        url("../public/fonts/Zodiak-Light.woff") format("woff"),
+        url("../public/fonts/Zodiak-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Zodiak";
+    src: url("../public/fonts/Zodiak-LightItalic.woff2") format("woff2"),
+        url("../public/fonts/Zodiak-LightItalic.woff") format("woff"),
+        url("../public/fonts/Zodiak-LightItalic.ttf") format("truetype");
+    font-weight: 300;
+    font-display: swap;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Zodiak";
+    src: url("../public/fonts/Zodiak-Regular.woff2") format("woff2"),
+        url("../public/fonts/Zodiak-Regular.woff") format("woff"),
+        url("../public/fonts/Zodiak-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Zodiak";
+    src: url("../public/fonts/Zodiak-Italic.woff2") format("woff2"),
+        url("../public/fonts/Zodiak-Italic.woff") format("woff"),
+        url("../public/fonts/Zodiak-Italic.ttf") format("truetype");
+    font-weight: 400;
+    font-display: swap;
+    font-style: italic;
+}
