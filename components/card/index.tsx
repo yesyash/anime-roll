@@ -55,11 +55,11 @@ export const Card: React.FC<Props> = ({
                     </div>
 
                     <div>
-                        <h3 className="mt-3 mb-1 text-lg font-bold leading-6 md:mt-4 md:text-xl">
+                        <h3 className="mt-3 mb-0.5 text-base font-semibold leading-6 md:mt-4 md:text-lg">
                             {title}
                         </h3>
-                        <div className="font-medium text-stone-700">
-                            <span className="block">{director}</span>
+                        <div className="text-xs font-medium  lg:text-sm text-stone-500">
+                            <span className="block mb-0.5">{director}</span>
                             <span className="block">
                                 {releaseDate} / {rtScore}
                             </span>

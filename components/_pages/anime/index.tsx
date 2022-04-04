@@ -43,12 +43,12 @@ const Anime: NextPage<Props> = ({ details }) => {
     return (
         <>
             <Head>
-                <title>{details.title} - Anime</title>
+                <title>{details.title} - Animeroll</title>
             </Head>
 
             <main>
                 <section className="bg-teal-100">
-                    <div className="relative px-4 md:px-8 md:px-20 ">
+                    <div className="relative px-4 md:px-8 lg:px-20 ">
                         <div className="pt-12 pb-8 md:transform md:-translate-x-1/2 md:absolute md:w-full left-1/2 md:py-16">
                             <p className="text-center md:text-lg">
                                 {details.original_title}
@@ -132,7 +132,7 @@ const Anime: NextPage<Props> = ({ details }) => {
                 </section>
 
                 <section>
-                    <div className="relative px-4 pt-16 md:grid md:grid-cols-12 md:px-8 md:px-20">
+                    <div className="relative px-4 pt-16 md:grid md:grid-cols-12 md:px-8 lg:px-20">
                         <div className="col-start-1 col-end-4 pb-6">
                             <span className="block pb-1 text-sm font-semibold text-stone-700">
                                 Romanised Title
