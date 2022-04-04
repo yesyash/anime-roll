@@ -2,6 +2,7 @@ import { cn } from "@/helpers/classname";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { BlurImage } from "../blur-image";
 
 interface Props {
     id: string;
@@ -24,12 +25,11 @@ export const Card: React.FC<Props> = ({
     rtScore,
     windowWidth,
 }) => {
-    const [isLoading, setIsLoading] = useState(true);
     let originalHeight = originalTitleRomanised.length * 25;
 
     let finalHeight =
-        originalHeight >= 650
-            ? 650
+        originalHeight >= 550
+            ? 450
             : originalHeight <= 380
             ? 380
             : originalHeight;
@@ -39,7 +39,7 @@ export const Card: React.FC<Props> = ({
             originalHeight >= 550
                 ? 250
                 : originalHeight >= 400
-                ? originalHeight - 100
+                ? originalHeight - 200
                 : originalHeight;
     }
 
@@ -51,23 +51,12 @@ export const Card: React.FC<Props> = ({
                         className="relative w-full overflow-hidden"
                         style={{ height: `${finalHeight}px` }}
                     >
-                        <Image
-                            className={cn(
-                                "transition duration-700 ease-in-out group-hover:scale-100 w-full h-full object-cover bg-slate-200 object-top",
-                                isLoading
-                                    ? "scale-110 blur-2xl grayscale"
-                                    : "scale-105 blur-0 grayscale-0"
-                            )}
-                            src={imgUrl}
-                            layout="fill"
-                            objectFit="cover"
-                            onLoadingComplete={() => setIsLoading(false)}
-                        />
+                        <BlurImage url={imgUrl} alt={title} />
                     </div>
 
                     <div>
-                        <h3 className="mt-3 text-lg font-bold leading-6 pb-0.5">
-                            {originalTitleRomanised}
+                        <h3 className="mt-3 mb-1 text-lg font-bold leading-6 md:mt-4 md:text-xl">
+                            {title}
                         </h3>
                         <div className="font-medium text-stone-700">
                             <span className="block">{director}</span>

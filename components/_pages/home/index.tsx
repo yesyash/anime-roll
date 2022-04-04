@@ -1,7 +1,12 @@
-import { Card } from "@/components/card";
-import { NextPage } from "next";
 import { useEffect, useState } from "react";
+import { NextPage } from "next";
+import Head from "next/head";
+
+// types
 import { Anime } from "types/anime";
+
+// componenets
+import { Card } from "@/components/card";
 interface Props {
     animeList: Array<Anime>;
 }
@@ -15,30 +20,42 @@ const Home: NextPage<Props> = ({ animeList }) => {
 
     return (
         <>
-            <h2 className="font-serif text-5xl">Featured Artwork</h2>
-            <h4 className="text-lg">Pricing</h4>
+            <Head>
+                <title>Animeroll</title>
+            </Head>
 
-            <div className="gap-2 columns-2 md:p-10 md:my-12 md:columns-4 md:gap-4">
-                {animeList.map((anime) => (
-                    <div
-                        key={anime.id}
-                        className="px-2 pb-4 mb-4 break-inside-avoid"
-                    >
-                        <Card
-                            windowWidth={windowWidth}
-                            id={anime.id}
-                            imgUrl={anime.image}
-                            director={anime.director}
-                            releaseDate={anime.release_date}
-                            rtScore={anime.rt_score}
-                            title={anime.title}
-                            originalTitleRomanised={
-                                anime.original_title_romanised
-                            }
-                        />
-                    </div>
-                ))}
-            </div>
+            <main className="mx-4 max-w-7xl md:mx-8 lg:mx-16 xl:mx-28 2xl:mx-auto">
+                <section className="py-8 mb-10 text-center md:mb-16">
+                    <h2 className="pb-2 font-serif text-5xl md:text-6xl">
+                        Animeroll
+                    </h2>
+                    <h4 className="text-lg text-slate-800">
+                        Discover quality anime
+                    </h4>
+                </section>
+
+                <section className="gap-2 -mx-2 columns-2 md:columns-3 md:gap-8 lg:columns-4 lg:gap-10">
+                    {animeList.map((anime) => (
+                        <div
+                            key={anime.id}
+                            className="px-2 pb-4 mb-4 md:mb-8 lg:mb-10 break-inside-avoid"
+                        >
+                            <Card
+                                windowWidth={windowWidth}
+                                id={anime.id}
+                                imgUrl={anime.image}
+                                director={anime.director}
+                                releaseDate={anime.release_date}
+                                rtScore={anime.rt_score}
+                                title={anime.title}
+                                originalTitleRomanised={
+                                    anime.original_title_romanised
+                                }
+                            />
+                        </div>
+                    ))}
+                </section>
+            </main>
         </>
     );
 };

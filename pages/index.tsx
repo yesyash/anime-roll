@@ -1,18 +1,15 @@
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticProps } from "next";
+
+// Components
 import Home from "@/components/_pages/home";
-import { Anime } from "types/anime";
+
+// Library functions
+import { getAnimeList } from "@/lib/get-anime-list";
 
 export default Home;
 
-const getData = async (): Promise<Array<Anime>> => {
-    const res = await fetch("https://ghibliapi.herokuapp.com/films");
-    const animeList: Anime[] = await res.json();
-
-    return animeList;
-};
-
 export const getStaticProps: GetStaticProps = async () => {
-    const animeList = await getData();
+    const animeList = await getAnimeList();
     return {
         props: {
             animeList,
@@ -20,13 +17,3 @@ export const getStaticProps: GetStaticProps = async () => {
         revalidate: 600,
     };
 };
-
-// export const getStaticPaths: GetStaticPaths = async () => {
-//     const animeList = await getData();
-
-//     const paths = animeList.map((anime) => ({
-//         params: { id: anime.id },
-//     }));
-
-//     return { paths, fallback: "blocking" };
-// };
