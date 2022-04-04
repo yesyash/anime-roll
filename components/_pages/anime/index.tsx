@@ -16,21 +16,22 @@ interface Props {
 
 interface ImageBtnProps {
     url: string;
+    alt: string;
     setImgFn: Dispatch<SetStateAction<string>>;
     className?: string;
 }
-const ImageBtn: React.FC<ImageBtnProps> = ({ url, setImgFn, className }) => {
+const ImageBtn: React.FC<ImageBtnProps> = ({
+    url,
+    alt,
+    setImgFn,
+    className,
+}) => {
     return (
         <button
             className={`relative block w-16 h-20 md:w-20 md:h-28  ${className}`}
             onClick={() => setImgFn(url)}
         >
-            <Image
-                src={url}
-                layout="fill"
-                objectFit="cover"
-                className="w-full h-full"
-            />
+            <BlurImage url={url} layout="fill" alt={alt} />
         </button>
     );
 };
@@ -115,12 +116,14 @@ const Anime: NextPage<Props> = ({ details }) => {
                             <div className="flex justify-center pt-8 pb-12 md:col-start-9 md:col-end-12 md:ml-14 md:items-end">
                                 <ImageBtn
                                     url={details.image}
+                                    alt={details.title}
                                     setImgFn={setActiveImg}
                                     className="mr-4 md:mr-6"
                                 />
 
                                 <ImageBtn
                                     url={details.movie_banner}
+                                    alt={details.title}
                                     setImgFn={setActiveImg}
                                 />
                             </div>
