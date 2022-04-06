@@ -3,7 +3,7 @@ import { Anime } from "@/types/anime";
 /**
  * Returns a list with all animes.
  * -----------
- * @returns Array, ArrayType = Anime
+ * @returns List of all anime : Array<object>
  */
 export const getAnimeList = async (): Promise<Array<Anime>> => {
     const res = await fetch("https://ghibliapi.herokuapp.com/films");
