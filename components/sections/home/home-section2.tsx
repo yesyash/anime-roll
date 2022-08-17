@@ -6,10 +6,12 @@ import { Card } from "@/components/card";
 import { Container } from "@/components/container";
 
 interface Props {
+    showSsrPages: boolean
     animeList: Array<Anime>;
     windowWidth: number;
 }
-export const HomeSection2: React.FC<Props> = ({ animeList, windowWidth }) => {
+
+export const HomeSection2: React.FC<Props> = ({ animeList, windowWidth, showSsrPages }) => {
     return (
         <section className="gap-2 -mx-2 columns-2 md:columns-3 md:gap-8 lg:columns-4 lg:gap-10">
             {animeList.map((anime) => (
@@ -19,7 +21,7 @@ export const HomeSection2: React.FC<Props> = ({ animeList, windowWidth }) => {
                 >
                     <Card
                         windowWidth={windowWidth}
-                        id={anime.id}
+                        id={showSsrPages ? '/ssr/' + anime.id : anime.id}
                         imgUrl={anime.image}
                         director={anime.director}
                         releaseDate={anime.release_date}
